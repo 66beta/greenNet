@@ -1,8 +1,8 @@
-name: Update My Personal Hosts
+name: Greenify network experience
 on:
   schedule:
     - cron: '0 22 * * *'
-  workflow_dispatch:
+  workflow_dispatch:      # Enable manual trigger
 
 jobs:
   build:
@@ -12,25 +12,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - uses: pnpm/action-setup@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          version: 8
-          
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          # cache: 'pnpm'
+          node-version: 20 # Ensures native fetch support
 
-      - name: Install dependencies
-        run: pnpm add axios
-
-      - name: Generate Hosts
+      - name: Generate Hosts File
         run: node scripts/process.mjs
 
-      - name: Deploy to Repo
+      - name: Commit and Push Changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add hosts
-          git commit -m "chore: 🚀 update hosts [$(date)]" || exit 0
+          git commit -m "chore: 🚀 auto-update hosts [$(date)]" || exit 0
           git push
