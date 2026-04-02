@@ -24,7 +24,9 @@ const SOURCES = [
 ];
 
 const WHITELIST = [
-  'ocloud.oppomobile.com'
+  'ocloud.oppomobile.com',
+  'dc.oppomobile.com',
+  'push.oppomobile.com',
 ];
 
 async function run() {
