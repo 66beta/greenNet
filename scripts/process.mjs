@@ -27,6 +27,7 @@ const WHITELIST = [
   'ocloud.oppomobile.com',
   'dc.oppomobile.com',
   'push.oppomobile.com',
+  'myoppo.com'
 ];
 
 async function run() {
