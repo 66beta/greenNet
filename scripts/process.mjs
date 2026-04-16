@@ -34,6 +34,11 @@ const WHITELIST = [
   'finzfin.com',
 ];
 
+const FORCE_BLOCK = [
+  'ads.heytapmobi.com',
+  'ads.heytapmobile.com',
+];
+
 async function run() {
   const allDomains = new Set();
 
@@ -71,23 +76,30 @@ async function run() {
         }
 
         if (domain) {
-          // Remove potential wildcards and clean the domain string
-          const cleanDomain = domain.replace(/^\*\./, '').toLowerCase();
-          
-          // Final validation: must be a valid domain format without wildcards
-          if (cleanDomain.includes('*') || !/^[a-z0-9.-]+$/.test(cleanDomain) || !cleanDomain.includes('.')) {
-            continue;
-          }
+        let cleanDomain = domain.toLowerCase().replace(/^(\*\.|\.)/, '');
 
-          // Whitelist check: Skip if domain matches or is a subdomain of whitelisted entry
-          const isWhitelisted = WHITELIST.some(white => 
-            cleanDomain === white || cleanDomain.endsWith(`.${white}`)
-          );
-          
-          if (!isWhitelisted) {
-            allDomains.add(cleanDomain);
-          }
+        const isForceBlocked = FORCE_BLOCK.some(black => 
+            cleanDomain === black.toLowerCase() || cleanDomain.endsWith(`.${black.toLowerCase()}`)
+        );
+
+        if (!isForceBlocked) {
+            const isWhitelisted = WHITELIST.some(white => 
+                cleanDomain === white.toLowerCase() || cleanDomain.endsWith(`.${white.toLowerCase()}`)
+            );
+
+            if (isWhitelisted) {
+                continue; 
+            }
+        } else {
         }
+
+        cleanDomain = cleanDomain.replace(/\*/g, '');
+        if (!/^[a-z0-9.-]+$/.test(cleanDomain) || !cleanDomain.includes('.')) {
+            continue;
+        }
+
+        allDomains.add(cleanDomain);
+    }
       }
     } catch (e) {
       console.error(`Error processing ${source.url}: ${e.message}`);
@@ -98,6 +110,7 @@ async function run() {
     `# Generated: ${new Date().toISOString()}`,
     `# Total Unique Entries: ${allDomains.size}`,
     `# Whitelist applied: ${WHITELIST.join(', ')}`,
+    `# Force blocked: ${FORCE_BLOCK.join(', ')}`,
     ''
   ];
 
