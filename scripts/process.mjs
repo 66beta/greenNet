@@ -24,10 +24,7 @@ const SOURCES = [
 ];
 
 const WHITELIST = [
-  'ocloud.oppomobile.com',
-  'dc.oppomobile.com',
-  'push.oppomobile.com',
-  'apps.oppomobile.com',
+  'oppomobile.com',
   'myoppo.com',
   'heytapmobi.com',
   'heytapmobile.com',
@@ -35,8 +32,11 @@ const WHITELIST = [
 ];
 
 const FORCE_BLOCK = [
+  'ads.oppomobile.com',
+  'ads.myoppo.com',
   'ads.heytapmobi.com',
   'ads.heytapmobile.com',
+  'ads.finzfin.com',
 ];
 
 async function run() {
