@@ -30,6 +30,7 @@ const WHITELIST = [
   'apps.oppomobile.com',
   'myoppo.com',
   'heytapmobi.com',
+  'heytapmobile.com',
   'finzfin.com',
 ];
 
