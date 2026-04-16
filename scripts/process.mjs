@@ -1,10 +1,10 @@
 import fs from 'fs';
 
 const SOURCES = [
-  {
-    url: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/reject-list.txt',
-    type: 'domain-list'
-  },
+  // {
+  //   url: 'https://raw.githubusercontent.com/Loyalsoldier/v2ray-rules-dat/release/reject-list.txt',
+  //   type: 'domain-list'
+  // },
   {
     url: 'https://raw.githubusercontent.com/Cats-Team/AdRules/main/dns.txt',
     type: 'adblock'
@@ -14,13 +14,25 @@ const SOURCES = [
     type: 'hosts-list'
   },
   {
-    url:'https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts',
-    type:'hosts-list'
-  },
+    url: 'https://raw.githubusercontent.com/hagezi/dns-blocklists/main/hosts/multi.txt',
+    type: 'hosts-list'
+  }
   {
     url: 'https://raw.githubusercontent.com/Mice-Tailor-Infra/fcm-hosts-next/refs/heads/main/fcm_dual.hosts',
     type: 'hosts-list'
-  }
+  },
+  {
+    url:'https://raw.githubusercontent.com/521xueweihan/GitHub520/refs/heads/main/hosts',
+    type:'hosts-list'
+  },
+  // { 
+  //   url: 'https://raw.githubusercontent.com/adaway/adaway.github.io/master/hosts.txt',
+  //   type: 'hosts-list'
+  // },
+  // {
+  //   url:'https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts',
+  //   type:'hosts-list'
+  // },
 ];
 
 const WHITELIST = [
