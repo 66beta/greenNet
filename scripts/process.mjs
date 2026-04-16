@@ -13,10 +13,10 @@ const SOURCES = [
     url: 'https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-hosts.txt',
     type: 'hosts-list'
   },
-  // {
-  //   url: 'https://raw.githubusercontent.com/hagezi/dns-blocklists/main/hosts/light.txt',
-  //   type: 'hosts-list'
-  // },
+  {
+    url: 'https://raw.githubusercontent.com/hagezi/dns-blocklists/main/hosts/light.txt',
+    type: 'hosts-list'
+  },
   {
     url: 'https://raw.githubusercontent.com/Mice-Tailor-Infra/fcm-hosts-next/refs/heads/main/fcm_dual.hosts',
     type: 'speedup'
@@ -41,6 +41,7 @@ const WHITELIST = [
   'heytapmobi.com',
   'heytapmobile.com',
   'finzfin.com',
+  'coloros.com',
 ];
 
 const FORCE_BLOCK = [
@@ -129,27 +130,37 @@ async function run() {
     }
   }
 
-  const output = [
-    `# Generated: ${new Date().toISOString()}`,
-    `# Total Unique Entries: ${allDomains.size}`,
-    `# Whitelist applied: ${WHITELIST.join(', ')}`,
-    `# Force blocked: ${FORCE_BLOCK.join(', ')}`,
-    ''
-  ];
+  const sortedDomains = Array.from(allDomains).sort();
+  const uniqueSpeedup = Array.from(new Set(speedupLines));
 
-  // Map to both IPv4 and IPv6 for comprehensive blocking
-  Array.from(allDomains).sort().forEach(domain => {
-    output.push(`0.0.0.0 ${domain}`);
-    output.push(`:: ${domain}`);
-  });
+  const writeHostsFile = (fileName, includeIPv6) => {
+    const output = [
+      `# Generated: ${new Date().toISOString()}`,
+      `# Total Unique Domains: ${allDomains.size}`,
+      `# Mode: ${includeIPv6 ? 'IPv4 + IPv6' : 'IPv4 Only'}`,
+      `# Whitelist: ${WHITELIST.join(', ')}`,
+      ''
+    ];
 
-  if (speedupLines.length > 0) {
-    output.push('\n# --- Speedup / Direct Hosts ---');
-    output.push(...speedupLines);
-  }
+    sortedDomains.forEach(domain => {
+      output.push(`0.0.0.0 ${domain}`);
+      if (includeIPv6) output.push(`:: ${domain}`);
+    });
 
-  fs.writeFileSync('hosts', output.join('\n'));
-  console.log(`Success! ${allDomains.size} domains are ready in hosts file.`);
+    if (uniqueSpeedup.length > 0) {
+      output.push('\n# --- Speedup / Direct Hosts ---');
+      output.push(...uniqueSpeedup);
+    }
+
+    fs.writeFileSync(fileName, output.join('\n'));
+  };
+
+  writeHostsFile('hosts', false);
+  writeHostsFile('hosts_all', true);
+  
+  console.log(`Success! ${allDomains.size} domains processed.`);
+  console.log(`- Created 'hosts' (IPv4)`);
+  console.log(`- Created 'hosts_all' (IPv4+IPv6)`);
 }
 
 run();
