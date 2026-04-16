@@ -13,10 +13,10 @@ const SOURCES = [
     url: 'https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-hosts.txt',
     type: 'hosts-list'
   },
-  {
-    url: 'https://raw.githubusercontent.com/hagezi/dns-blocklists/main/hosts/light.txt',
-    type: 'hosts-list'
-  },
+  // {
+  //   url: 'https://raw.githubusercontent.com/hagezi/dns-blocklists/main/hosts/light.txt',
+  //   type: 'hosts-list'
+  // },
   {
     url: 'https://raw.githubusercontent.com/Mice-Tailor-Infra/fcm-hosts-next/refs/heads/main/fcm_dual.hosts',
     type: 'speedup'
