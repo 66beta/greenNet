@@ -27,7 +27,10 @@ const WHITELIST = [
   'ocloud.oppomobile.com',
   'dc.oppomobile.com',
   'push.oppomobile.com',
-  'myoppo.com'
+  'apps.oppomobile.com',
+  'myoppo.com',
+  'heytapmobi.com',
+  'finzfin.com',
 ];
 
 async function run() {
