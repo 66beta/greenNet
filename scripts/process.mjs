@@ -14,16 +14,16 @@ const SOURCES = [
     type: 'hosts-list'
   },
   {
-    url: 'https://raw.githubusercontent.com/hagezi/dns-blocklists/main/hosts/multi.txt',
+    url: 'https://raw.githubusercontent.com/hagezi/dns-blocklists/main/hosts/light.txt',
     type: 'hosts-list'
   },
   {
     url: 'https://raw.githubusercontent.com/Mice-Tailor-Infra/fcm-hosts-next/refs/heads/main/fcm_dual.hosts',
-    type: 'hosts-list'
+    type: 'speedup'
   },
   {
     url:'https://raw.githubusercontent.com/521xueweihan/GitHub520/refs/heads/main/hosts',
-    type:'hosts-list'
+    type:'speedup'
   },
   // { 
   //   url: 'https://raw.githubusercontent.com/adaway/adaway.github.io/master/hosts.txt',
@@ -53,6 +53,7 @@ const FORCE_BLOCK = [
 
 async function run() {
   const allDomains = new Set();
+  const speedupLines = [];
 
   for (const source of SOURCES) {
     try {
@@ -62,6 +63,16 @@ async function run() {
       
       const text = await response.text();
       const lines = text.split('\n');
+
+      if (source.type === 'speedup') {
+        for (let line of lines) {
+          line = line.trim();
+          if (line && !line.startsWith('#') && /^\d|:/.test(line)) {
+            speedupLines.push(line);
+          }
+        }
+        continue;
+      }
 
       for (let line of lines) {
         line = line.trim();
@@ -131,6 +142,11 @@ async function run() {
     output.push(`0.0.0.0 ${domain}`);
     output.push(`:: ${domain}`);
   });
+
+  if (speedupLines.length > 0) {
+    output.push('\n# --- Speedup / Direct Hosts ---');
+    output.push(...speedupLines);
+  }
 
   fs.writeFileSync('hosts', output.join('\n'));
   console.log(`Success! ${allDomains.size} domains are ready in hosts file.`);
