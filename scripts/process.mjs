@@ -16,7 +16,7 @@ const SOURCES = [
   {
     url: 'https://raw.githubusercontent.com/hagezi/dns-blocklists/main/hosts/multi.txt',
     type: 'hosts-list'
-  }
+  },
   {
     url: 'https://raw.githubusercontent.com/Mice-Tailor-Infra/fcm-hosts-next/refs/heads/main/fcm_dual.hosts',
     type: 'hosts-list'
