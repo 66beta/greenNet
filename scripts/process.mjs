@@ -19,7 +19,7 @@ const SOURCES = [
   },
   {
     name: 'AWAvenue Ads Only',
-    url: 'https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Adguard-Only.Ads.txt',
+    url: 'https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-hosts-Only.Ads.txt',
     type: 'hosts-list',
   },
   {
@@ -125,12 +125,6 @@ function normalizeDomain(input) {
   }
 
   return domain;
-}
-
-function isWhitelisted(domain) {
-  return WHITELIST.some(
-    item => domain === item || domain.endsWith(`.${item}`)
-  );
 }
 
 function isForceBlocked(domain) {
