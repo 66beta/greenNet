@@ -1,10 +1,10 @@
-# greenNet
+# GreenNet Hosts 绿坝上网护航计划
 
 [English](README.md)
 
 **为 Android 提供的 Hosts 规则集，专为 [BindHosts](https://github.com/bindhosts/bindhosts) 模块生成。**
 
-greenNet 从多个公开维护的 Hosts / DNS 规则源获取数据，经过解析、域名校验、去重、白名单过滤和规则合并，自动生成适用于 Android 系统的 Hosts 文件。
+GreenNet 从多个公开维护的 Hosts / DNS 规则源获取数据，经过解析、域名校验、去重、白名单过滤和规则合并，自动生成适用于 Android 系统的 Hosts 文件。
 
 项目通过 GitHub Actions 自动构建，提供 IPv4 和 IPv4 + IPv6 两种格式，以及 Basic 和 Full 两种规则组合，方便用户根据实际需求选择。
 
@@ -20,7 +20,7 @@ greenNet 从多个公开维护的 Hosts / DNS 规则源获取数据，经过解�
 
 ## 使用方法
 
-greenNet 生成的 Hosts 文件用于配合 Android Root 环境下的 [BindHosts](https://github.com/bindhosts/bindhosts) 模块使用。
+GreenNet 生成的 Hosts 文件用于配合 Android Root 环境下的 [BindHosts](https://github.com/bindhosts/bindhosts) 模块使用。
 
 ### 1. 准备 Root 环境
 
@@ -38,7 +38,7 @@ BindHosts 同时支持 KernelSU、APatch 和 Magisk，具体兼容性以模块�
 
 安装完成后按照模块要求重启设备。
 
-### 3. 添加 greenNet Hosts 源
+### 3. 添加 GreenNet Hosts 源
 
 打开 BindHosts 的 WebUI，添加自定义 Hosts 来源。
 
@@ -59,9 +59,9 @@ https://raw.githubusercontent.com/你的用户名/greenNet/main/hosts
 | 文件 | 规则组合 | 地址格式 |
 |---|---|---|
 | `hosts` | Basic | IPv4 |
-| `hosts_full` | Full | IPv4 |
+| `hosts_full` | Basic + HaGeZi DNS Blocklists | IPv4 |
 | `hosts_all` | Basic | IPv4 + IPv6 |
-| `hosts_full_all` | Full | IPv4 + IPv6 |
+| `hosts_full_all` | Basic + HaGeZi DNS Blocklists | IPv4 + IPv6 |
 
 ### Basic
 
@@ -136,7 +136,7 @@ api.example.com
 | FCM Hosts | Google FCM 网络连接优化 | [Mice-Tailor-Infra/fcm-hosts-next](https://github.com/Mice-Tailor-Infra/fcm-hosts-next) |
 | GitHub520 | GitHub 域名连接优化 | [521xueweihan/GitHub520](https://github.com/521xueweihan/GitHub520) |
 
-规则源由各自维护者独立维护，greenNet 仅负责获取、整理和生成 Hosts 文件。
+规则源由各自维护者独立维护，GreenNet 仅负责获取、整理和生成 Hosts 文件。
 
 ## 注意事项
 
