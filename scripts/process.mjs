@@ -7,11 +7,7 @@ const CONFIG = {
   timeout: 30000,
   retries: 2,
   retryDelay: 1500,
-
-  // 防止上游异常返回空文件或极少量规则
   minTotalDomains: 1000,
-
-  // 防止异常下载占用过多内存
   maxResponseBytes: 20 * 1024 * 1024,
 };
 
@@ -22,13 +18,13 @@ const SOURCES = [
     type: 'adblock',
   },
   {
-    name: 'AWAvenue',
-    url: 'https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-hosts.txt',
+    name: 'AWAvenue Ads Only',
+    url: 'https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Adguard-Only.Ads.txt',
     type: 'hosts-list',
   },
   {
-    name: 'HaGeZi Light',
-    url: 'https://raw.githubusercontent.com/hagezi/dns-blocklists/main/hosts/light.txt',
+    name: 'HaGeZi Normal',
+    url: 'https://raw.githubusercontent.com/hagezi/dns-blocklists-legacy/main/hosts/multi.txt',
     type: 'hosts-list',
   },
   {
@@ -43,14 +39,34 @@ const SOURCES = [
   },
 ];
 
-const WHITELIST = [
-  'oppomobile.com',
-  'myoppo.com',
-  'heytapmobi.com',
-  'heytapmobile.com',
-  'finzfin.com',
-  'coloros.com',
-];
+const ALLOW_EXACT = loadAllowlist('oppo-allowlist.txt');
+
+const ALLOW_SUFFIX = [];
+
+function loadAllowlist(file) {
+  if (!fs.existsSync(file)) {
+    return new Set();
+  }
+
+  return new Set(
+    fs.readFileSync(file, 'utf8')
+      .split(/\r?\n/)
+      .map(line => line.trim().toLowerCase())
+      .filter(line => line && !line.startsWith('#'))
+      .map(normalizeDomain)
+      .filter(Boolean)
+  );
+}
+
+function isWhitelisted(domain) {
+  if (ALLOW_EXACT.has(domain)) {
+    return true;
+  }
+
+  return ALLOW_SUFFIX.some(
+    item => domain === item || domain.endsWith(`.${item}`)
+  );
+}
 
 const FORCE_BLOCK = [
   'ads.oppomobile.com',
@@ -519,7 +535,8 @@ async function run() {
       `# Generated: ${new Date().toISOString()}`,
       `# Total Unique Domains: ${sortedDomains.length}`,
       `# Mode: ${includeIPv6 ? 'IPv4 + IPv6' : 'IPv4 Only'}`,
-      `# Whitelist: ${WHITELIST.join(', ')}`,
+      `# Exact Whitelist Count: ${ALLOW_EXACT.size}`,
+      `# Suffix Whitelist Count: ${ALLOW_SUFFIX.length}`,
       '',
     ];
 
