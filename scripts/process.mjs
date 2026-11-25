@@ -23,8 +23,8 @@ const SOURCES = [
     type: 'hosts-list',
   },
   {
-    name: 'HaGeZi Normal',
-    url: 'https://raw.githubusercontent.com/hagezi/dns-blocklists-legacy/main/hosts/multi.txt',
+    name: 'HaGeZi Light',
+    url: 'https://raw.githubusercontent.com/hagezi/dns-blocklists-legacy/main/hosts/light.txt',
     type: 'hosts-list',
   },
   {
