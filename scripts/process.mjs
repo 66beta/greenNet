@@ -26,6 +26,7 @@ const SOURCES = [
     name: 'HaGeZi Light',
     url: 'https://raw.githubusercontent.com/hagezi/dns-blocklists-legacy/main/hosts/light.txt',
     type: 'hosts-list',
+    excludeFromBasic: true,
   },
   {
     name: 'FCM Hosts',
@@ -378,7 +379,9 @@ async function processSource(source) {
 // --------------------
 
 async function run() {
+  const baseDomains = new Set();
   const allDomains = new Set();
+    
   const speedupMap = new Map();
 
   let successfulAdSources = 0;
@@ -423,10 +426,13 @@ async function run() {
       for (const domain of result.domains) {
         if (allDomains.has(domain)) {
           stats.duplicates++;
-          continue;
+        } else {
+          allDomains.add(domain);
         }
-
-        allDomains.add(domain);
+    
+        if (!source.excludeFromBasic) {
+          baseDomains.add(domain);
+        }
       }
     } catch (error) {
       console.error(
@@ -452,25 +458,42 @@ async function run() {
   // Whitelist filtering
   // --------------------
 
-  for (const domain of allDomains) {
-    if (isForceBlocked(domain)) {
-      continue;
+  function applyWhitelist(domains) {
+    let excluded = 0;
+  
+    for (const domain of domains) {
+      if (isForceBlocked(domain)) {
+        continue;
+      }
+  
+      if (isWhitelisted(domain)) {
+        domains.delete(domain);
+        excluded++;
+      }
     }
-
-    if (isWhitelisted(domain)) {
-      allDomains.delete(domain);
-      stats.whitelistExcluded++;
-    }
+  
+    return excluded;
   }
+
+  const basicWhitelistExcluded = applyWhitelist(baseDomains);
+  const fullWhitelistExcluded = applyWhitelist(allDomains);
 
   // --------------------
   // Force block
   // --------------------
 
+  let basicForcedDomains = 0;
+  let fullForcedDomains = 0;
+  
   for (const item of FORCE_BLOCK) {
+    if (!baseDomains.has(item)) {
+      baseDomains.add(item);
+      basicForcedDomains++;
+    }
+  
     if (!allDomains.has(item)) {
       allDomains.add(item);
-      stats.forcedDomains++;
+      fullForcedDomains++;
     }
   }
 
@@ -478,87 +501,140 @@ async function run() {
   // Build Speedup
   // --------------------
 
-  const finalSpeedup = [];
-
-  for (const [domain, ip] of speedupMap) {
-    if (allDomains.has(domain)) {
-      stats.speedupExcluded++;
-      continue;
+  function buildSpeedup(domains) {
+    const entries = [];
+    let excluded = 0;
+  
+    for (const [domain, ip] of speedupMap) {
+      if (domains.has(domain)) {
+        excluded++;
+        continue;
+      }
+  
+      entries.push(`${ip} ${domain}`);
     }
-
-    finalSpeedup.push(`${ip} ${domain}`);
+  
+    return { entries, excluded };
   }
+  
+  const basicSpeedup = buildSpeedup(baseDomains);
+  const fullSpeedup = buildSpeedup(allDomains);
 
   // --------------------
   // Quality check
   // --------------------
-
-  if (allDomains.size < CONFIG.minTotalDomains) {
+  
+  if (
+    baseDomains.size < CONFIG.minTotalDomains ||
+    allDomains.size < CONFIG.minTotalDomains
+  ) {
     throw new Error(
-      `Too few domains: ${allDomains.size}, ` +
-      `minimum: ${CONFIG.minTotalDomains}`
+      `Too few domains: Basic=${baseDomains.size}, ` +
+      `Full=${allDomains.size}`
     );
   }
-
-  const sortedDomains = [...allDomains].sort();
-
+  
+  const sortedBasicDomains = [...baseDomains].sort();
+  const sortedFullDomains = [...allDomains].sort();
+  
   console.log('\n========== Build Statistics ==========');
-
+  
   for (const source of stats.sources) {
     console.log(
       `${source.status.padEnd(8)} ${source.name}:`,
       source.count ?? source.error
     );
   }
-
+  
+  console.log('\n--- Basic (without HaGeZi) ---');
+  console.log('Unique domains:', baseDomains.size);
+  console.log('Whitelist excluded:', basicWhitelistExcluded);
+  console.log('Forced domains:', basicForcedDomains);
+  console.log('Speedup excluded:', basicSpeedup.excluded);
+  console.log('Speedup records:', basicSpeedup.entries.length);
+  
+  console.log('\n--- Full (with HaGeZi) ---');
   console.log('Unique domains:', allDomains.size);
   console.log('Duplicates:', stats.duplicates);
-  console.log('Whitelist excluded:', stats.whitelistExcluded);
-  console.log('Forced domains:', stats.forcedDomains);
-  console.log('Speedup conflicts:', stats.speedupConflicts);
-  console.log('Speedup excluded:', stats.speedupExcluded);
-  console.log('Speedup records:', finalSpeedup.length);
-
+  console.log('Whitelist excluded:', fullWhitelistExcluded);
+  console.log('Forced domains:', fullForcedDomains);
+  console.log('Speedup excluded:', fullSpeedup.excluded);
+  console.log('Speedup records:', fullSpeedup.entries.length);
+  
   // --------------------
   // Generate files
   // --------------------
 
-  function generateHosts(includeIPv6) {
+  function generateHosts(
+    domains,
+    speedup,
+    includeIPv6,
+    profile
+  ) {
     const output = [
       '# greenNet Hosts',
       `# Generated: ${new Date().toISOString()}`,
-      `# Total Unique Domains: ${sortedDomains.length}`,
+      `# Profile: ${profile}`,
+      `# Total Unique Domains: ${domains.length}`,
       `# Mode: ${includeIPv6 ? 'IPv4 + IPv6' : 'IPv4 Only'}`,
       `# Exact Whitelist Count: ${ALLOW_EXACT.size}`,
       `# Suffix Whitelist Count: ${ALLOW_SUFFIX.length}`,
       '',
     ];
-
-    for (const domain of sortedDomains) {
+  
+    for (const domain of domains) {
       output.push(`0.0.0.0 ${domain}`);
-
+  
       if (includeIPv6) {
         output.push(`:: ${domain}`);
       }
     }
-
-    if (finalSpeedup.length > 0) {
+  
+    if (speedup.length > 0) {
       output.push('');
       output.push('# --- Speedup / Direct Hosts ---');
-      output.push(...finalSpeedup);
+      output.push(...speedup);
     }
-
+  
     return output.join('\n') + '\n';
   }
 
   const files = [
     {
       name: 'hosts',
-      content: generateHosts(false),
+      content: generateHosts(
+        sortedBasicDomains,
+        basicSpeedup.entries,
+        false,
+        'Basic'
+      ),
+    },
+    {
+      name: 'hosts_full',
+      content: generateHosts(
+        sortedFullDomains,
+        fullSpeedup.entries,
+        false,
+        'Full'
+      ),
     },
     {
       name: 'hosts_all',
-      content: generateHosts(true),
+      content: generateHosts(
+        sortedBasicDomains,
+        basicSpeedup.entries,
+        true,
+        'Basic IPv4 + IPv6'
+      ),
+    },
+    {
+      name: 'hosts_full_all',
+      content: generateHosts(
+        sortedFullDomains,
+        fullSpeedup.entries,
+        true,
+        'Full IPv4 + IPv6'
+      ),
     },
   ];
 
@@ -587,9 +663,11 @@ async function run() {
   }
 
   console.log('\n========== Build Success ==========');
-  console.log('Created: hosts');
-  console.log('Created: hosts_all');
-  console.log('Total domains:', sortedDomains.length);
+  for (const file of files) {
+    console.log(`Created: ${file.name}`);
+  }
+  console.log('Basic domains:', sortedBasicDomains.length);
+  console.log('Full domains:', sortedFullDomains.length);
 }
 
 run().catch(error => {
