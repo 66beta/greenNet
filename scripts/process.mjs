@@ -96,19 +96,16 @@ function normalizeDomain(input) {
 
   let domain = input.trim().toLowerCase();
 
-  // 不接受通配符，避免改变原始规则含义
   if (domain.includes('*')) return null;
 
   domain = domain.replace(/\.$/, '');
 
   if (!domain || domain.length > 253) return null;
 
-  // IDN 转换
   domain = domainToASCII(domain);
 
   if (!domain || domain.length > 253) return null;
 
-  // Hosts 中不应出现 IP 地址
   if (isIP(domain)) return null;
 
   const labels = domain.split('.');
@@ -198,7 +195,6 @@ function parseAdblockLine(line) {
     return null;
   }
 
-  // 跳过正则、CSS、例外和其他不能安全转换的规则
   if (
     line.startsWith('/') ||
     line.includes('##') ||
@@ -216,8 +212,6 @@ function parseAdblockLine(line) {
     return normalizeDomain(match[1]);
   }
 
-  // 兼容纯域名列表
-  // 不再把任意包含点号的文本当成域名
   if (/^[a-z0-9.-]+$/i.test(line)) {
     return normalizeDomain(line);
   }
@@ -263,7 +257,6 @@ function isUsableIP(ip) {
   if (version === 4) {
     const parts = ip.split('.').map(Number);
 
-    // 排除未指定、回环、组播和广播地址
     if (parts[0] === 0) return false;
     if (parts[0] === 127) return false;
     if (parts[0] >= 224) return false;
@@ -410,7 +403,6 @@ async function run() {
                 `${previous} vs ${record.ip}`
               );
 
-              // 保留先出现的映射
               continue;
             }
 
@@ -449,7 +441,6 @@ async function run() {
     }
   }
 
-  // 至少一个广告规则源必须成功
   if (successfulAdSources === 0) {
     throw new Error('All advertisement sources failed');
   }
@@ -638,7 +629,6 @@ async function run() {
     },
   ];
 
-  // 先写临时文件，全部成功后再替换正式文件
   const tempFiles = files.map(file => ({
     ...file,
     temp: `${file.name}.tmp`,
