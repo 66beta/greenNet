@@ -172,4 +172,4 @@ Special thanks to the following projects and their contributors for providing th
 
 Thanks to all open-source contributors and maintainers for their work.
 
-**greenNet is a rule aggregation and Hosts generation project. It does not own the upstream rules. Please respect the licenses and terms of use of each upstream project.**
+**GreenNet is a rule aggregation and Hosts generation project. It does not own the upstream rules. Please respect the licenses and terms of use of each upstream project.**
