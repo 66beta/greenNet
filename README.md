@@ -1,10 +1,10 @@
-# greenNet
+# GreenNet Hosts
 
 [简体中文](README.zh-CN.md)
 
 **Android Hosts rules generated for [BindHosts](https://github.com/bindhosts/bindhosts).**
 
-greenNet collects and combines publicly maintained Hosts and DNS blocklists, then processes them through domain validation, deduplication, whitelist filtering, and rule merging to generate Hosts files for Android devices.
+GreenNet collects and combines publicly maintained Hosts and DNS blocklists, then processes them through domain validation, deduplication, whitelist filtering, and rule merging to generate Hosts files for Android devices.
 
 The project uses GitHub Actions to automatically fetch upstream rules and generate four Hosts variants, allowing users to choose between different filtering levels and IP address formats.
 
@@ -20,7 +20,7 @@ The project uses GitHub Actions to automatically fetch upstream rules and genera
 
 ## Installation and Usage
 
-greenNet generates Hosts files for use with the Android Root module [BindHosts](https://github.com/bindhosts/bindhosts).
+GreenNet generates Hosts files for use with the Android Root module [BindHosts](https://github.com/bindhosts/bindhosts).
 
 ### 1. Prepare a Root Environment
 
@@ -38,7 +38,7 @@ Download the latest module from the [BindHosts repository](https://github.com/bi
 
 Follow the module's instructions and reboot your device if required.
 
-### 3. Add a greenNet Hosts Source
+### 3. Add a GreenNet Hosts Source
 
 Open the BindHosts WebUI and add a custom Hosts source.
 
@@ -56,14 +56,14 @@ Save the source and update Hosts through BindHosts.
 
 ## Available Hosts Files
 
-greenNet generates four variants:
+GreenNet generates four variants:
 
 | File | Rule Set | Address Format |
 |---|---|---|
 | `hosts` | Basic | IPv4 |
-| `hosts_full` | Full | IPv4 |
+| `hosts_full` | Basic + HaGeZi DNS Blocklists | IPv4 |
 | `hosts_all` | Basic | IPv4 + IPv6 |
-| `hosts_full_all` | Full | IPv4 + IPv6 |
+| `hosts_full_all` | Basic + HaGeZi DNS Blocklists | IPv4 + IPv6 |
 
 ### Basic
 
@@ -137,7 +137,7 @@ After modifying the configuration, run GitHub Actions and check the build statis
 
 ## Rule Sources
 
-greenNet uses the following publicly maintained projects:
+GreenNet uses the following publicly maintained projects:
 
 | Source | Purpose | Repository |
 |---|---|---|
@@ -149,7 +149,7 @@ greenNet uses the following publicly maintained projects:
 
 These rule sources are independently maintained by their respective authors.
 
-greenNet only retrieves, processes, and combines these rules to generate Hosts files.
+GreenNet only retrieves, processes, and combines these rules to generate Hosts files.
 
 ## Notes
 
