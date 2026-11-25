@@ -31,3 +31,9 @@ jobs:
           git add hosts
           git commit -m "chore: 🚀 auto-update hosts [$(date)]" || exit 0
           git push
+      - name: Check generated files
+        run: |
+          pwd
+          ls -lah
+          ls -lah hosts/
+          git status --short
