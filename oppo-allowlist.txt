@@ -4,6 +4,7 @@
 # myoppo.com
 # heytapmobi.com
 # heytapmobile.com
+# heytapimage.com
 # finzfin.com
 # coloros.com
 httpdns.ocloud.oppomobile.com
@@ -16,6 +17,7 @@ confe.dc.oppomobile.com
 httpdns.ocloud.heytapmobile.com
 dragate-in-dc.heytapmobile.com
 img-c.heytapmobile.com
+img-c.heytapimage.com
 obus-in.dc.heytapmobile.com
 omes-sec.heytapmobile.com
 esa-reg-eup.myoppo.com
