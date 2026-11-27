@@ -1,9 +1,9 @@
 # greenNet Hosts
-# Generated: 2026-11-27T08:19:43.237Z
+# Generated: 2026-11-27T08:24:38.549Z
 # Profile: Basic IPv4 + IPv6
-# Total Unique Domains: 215988
+# Total Unique Domains: 215987
 # Mode: IPv4 + IPv6
-# Exact Whitelist Count: 17
+# Exact Whitelist Count: 18
 # Suffix Whitelist Count: 0
 
 0.0.0.0 0.avmarket.rs
@@ -161548,8 +161548,6 @@
 :: img-a2.ak.imagevz.net
 0.0.0.0 img-ad-nex.com
 :: img-ad-nex.com
-0.0.0.0 img-c.heytapimage.com
-:: img-c.heytapimage.com
 0.0.0.0 img-x.jd.com
 :: img-x.jd.com
 0.0.0.0 img.0279.net

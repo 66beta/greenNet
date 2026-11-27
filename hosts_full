@@ -1,9 +1,9 @@
 # greenNet Hosts
-# Generated: 2026-11-27T08:19:43.191Z
+# Generated: 2026-11-27T08:24:38.515Z
 # Profile: Full
-# Total Unique Domains: 342593
+# Total Unique Domains: 342592
 # Mode: IPv4 Only
-# Exact Whitelist Count: 17
+# Exact Whitelist Count: 18
 # Suffix Whitelist Count: 0
 
 0.0.0.0 0--d.com
@@ -146620,7 +146620,6 @@
 0.0.0.0 imfuuvpqartcd.space
 0.0.0.0 img-a2.ak.imagevz.net
 0.0.0.0 img-ad-nex.com
-0.0.0.0 img-c.heytapimage.com
 0.0.0.0 img-c.net
 0.0.0.0 img-cdn.clinch.co
 0.0.0.0 img-gcp.avads.net
