@@ -1,9 +1,9 @@
 # greenNet Hosts
-# Generated: 2026-11-27T07:52:30.683Z
+# Generated: 2026-11-27T08:02:53.335Z
 # Profile: Basic
-# Total Unique Domains: 215999
+# Total Unique Domains: 215998
 # Mode: IPv4 Only
-# Exact Whitelist Count: 6
+# Exact Whitelist Count: 5
 # Suffix Whitelist Count: 0
 
 0.0.0.0 0.avmarket.rs
@@ -78081,7 +78081,6 @@
 0.0.0.0 httpdns.platform.dbankcloud.cn
 0.0.0.0 httpdns.platform.dbankcloud.com
 0.0.0.0 httpdns.pro
-0.0.0.0 httpdns.push.oppomobile.com
 0.0.0.0 httpdns.volcengineapi.com
 0.0.0.0 httpdns.yunxindns.com
 0.0.0.0 httpdns.zybang.com

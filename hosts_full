@@ -1,9 +1,9 @@
 # greenNet Hosts
-# Generated: 2026-11-27T07:52:30.707Z
+# Generated: 2026-11-27T08:02:53.365Z
 # Profile: Full
-# Total Unique Domains: 342608
+# Total Unique Domains: 342603
 # Mode: IPv4 Only
-# Exact Whitelist Count: 6
+# Exact Whitelist Count: 5
 # Suffix Whitelist Count: 0
 
 0.0.0.0 0--d.com
@@ -80748,7 +80748,6 @@
 0.0.0.0 conf.optum.com
 0.0.0.0 conf.smartnews-ads.com
 0.0.0.0 conf.spxl.socy.es
-0.0.0.0 confe.dc.oppomobile.com
 0.0.0.0 conference.all-energy.com.au
 0.0.0.0 conference.flsmidth.com
 0.0.0.0 conference.velpa.pl
@@ -80758,7 +80757,6 @@
 0.0.0.0 confesschairs.com
 0.0.0.0 confessedwarmth.com
 0.0.0.0 confessinvaluable.com
-0.0.0.0 conff.dc.oppomobile.com
 0.0.0.0 confg.fr
 0.0.0.0 confiaen.legalitas.com
 0.0.0.0 confianca.ondec.com.br
@@ -101879,7 +101877,6 @@
 0.0.0.0 dragate-in.dc.heytapmobi.com
 0.0.0.0 dragate-sg.dc.heytapmobi.com
 0.0.0.0 dragate-sg.dc.oppomobile.com
-0.0.0.0 dragate.dc.oppomobile.com
 0.0.0.0 dragerwerk.122.2o7.net
 0.0.0.0 draggedindicationconsiderable.com
 0.0.0.0 dragmanblinded.com
@@ -142389,7 +142386,6 @@
 0.0.0.0 httpdns.platform.dbankcloud.cn
 0.0.0.0 httpdns.platform.dbankcloud.com
 0.0.0.0 httpdns.pro
-0.0.0.0 httpdns.push.oppomobile.com
 0.0.0.0 httpdns.volcengineapi.com
 0.0.0.0 httpdns.yunxindns.com
 0.0.0.0 httpdns.zybang.com
@@ -282577,7 +282573,6 @@
 0.0.0.0 stat-counter.org
 0.0.0.0 stat-ea01.tange365.com
 0.0.0.0 stat-ext.foi.se
-0.0.0.0 stat-in.dc.oppomobile.com
 0.0.0.0 stat-mhb.online4media.de
 0.0.0.0 stat-na01.tange365.com
 0.0.0.0 stat-piwik-tracker.futbol24.com
