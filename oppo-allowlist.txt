@@ -6,8 +6,19 @@
 # heytapmobile.com
 # finzfin.com
 # coloros.com
+httpdns.ocloud.oppomobile.com
 httpdns.push.oppomobile.com
+dc.oppomobile.com
 stat-in.dc.oppomobile.com
 dragate.dc.oppomobile.com
 conff.dc.oppomobile.com
 confe.dc.oppomobile.com
+httpdns.ocloud.heytapmobile.com
+dragate-in-dc.heytapmobile.com
+img-c.heytapmobile.com
+obus-in.dc.heytapmobile.com
+omes-sec.heytapmobile.com
+esa-reg-eup.myoppo.com
+smartcard.apps.coloros.com
+moa-upload-online.coloros.com
+log-eap-sg.coloros.com
