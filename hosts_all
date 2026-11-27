@@ -1,9 +1,9 @@
 # greenNet Hosts
-# Generated: 2026-11-27T08:02:53.420Z
+# Generated: 2026-11-27T08:12:19.760Z
 # Profile: Basic IPv4 + IPv6
-# Total Unique Domains: 215998
+# Total Unique Domains: 215989
 # Mode: IPv4 + IPv6
-# Exact Whitelist Count: 5
+# Exact Whitelist Count: 16
 # Suffix Whitelist Count: 0
 
 0.0.0.0 0.avmarket.rs
@@ -93196,8 +93196,6 @@
 :: dc.luzygas.ahorraconrepsol.com
 0.0.0.0 dc.madridistas.com
 :: dc.madridistas.com
-0.0.0.0 dc.oppomobile.com
-:: dc.oppomobile.com
 0.0.0.0 dc.pagoda.com
 :: dc.pagoda.com
 0.0.0.0 dc.peoplesjewellers.com
@@ -100502,8 +100500,6 @@
 :: drachenjawpprimed.qpon
 0.0.0.0 draco-artgallery.wz.cz
 :: draco-artgallery.wz.cz
-0.0.0.0 dragate-in-dc.heytapmobile.com
-:: dragate-in-dc.heytapmobile.com
 0.0.0.0 dragmanblinded.com
 :: dragmanblinded.com
 0.0.0.0 dragon.codemakes.art
@@ -112464,8 +112460,6 @@
 :: es.oddo-bhf.com
 0.0.0.0 es.ylilauta.org
 :: es.ylilauta.org
-0.0.0.0 esa-reg-eup.myoppo.com
-:: esa-reg-eup.myoppo.com
 0.0.0.0 esa2j46dwf.com
 :: esa2j46dwf.com
 0.0.0.0 esales.ycc.sa
@@ -156148,8 +156142,6 @@
 :: httpdns.n.shifen.com
 0.0.0.0 httpdns.ocloud.heytapmobi.com
 :: httpdns.ocloud.heytapmobi.com
-0.0.0.0 httpdns.ocloud.oppomobile.com
-:: httpdns.ocloud.oppomobile.com
 0.0.0.0 httpdns.platform.dbankcloud.cn
 :: httpdns.platform.dbankcloud.cn
 0.0.0.0 httpdns.platform.dbankcloud.com
@@ -201660,8 +201652,6 @@
 :: log-collector.shopee.vn
 0.0.0.0 log-dttc.sggp.org.vn
 :: log-dttc.sggp.org.vn
-0.0.0.0 log-eap-sg.coloros.com
-:: log-eap-sg.coloros.com
 0.0.0.0 log-en.nhandan.vn
 :: log-en.nhandan.vn
 0.0.0.0 log-en.sggp.org.vn
@@ -227088,8 +227078,6 @@
 :: mo0lqi51s1.com
 0.0.0.0 mo3i5n46.de
 :: mo3i5n46.de
-0.0.0.0 moa-upload-online.coloros.com
-:: moa-upload-online.coloros.com
 0.0.0.0 moa.mediaoutcast.com
 :: moa.mediaoutcast.com
 0.0.0.0 moad.cn
@@ -240532,8 +240520,6 @@
 :: obuntoibafqlz.site
 0.0.0.0 obuqwygptmjge.website
 :: obuqwygptmjge.website
-0.0.0.0 obus-in.dc.heytapmobile.com
-:: obus-in.dc.heytapmobile.com
 0.0.0.0 obuse-apple.com
 :: obuse-apple.com
 0.0.0.0 obutl.4patriots.com
@@ -242864,8 +242850,6 @@
 :: omenparsnipwreckage.com
 0.0.0.0 omeotex.com
 :: omeotex.com
-0.0.0.0 omes-sec.heytapmobile.com
-:: omes-sec.heytapmobile.com
 0.0.0.0 ometrics.ameds.com
 :: ometrics.ameds.com
 0.0.0.0 ometrics.claflinequip.com
@@ -305184,8 +305168,6 @@
 :: smartcallback.ru
 0.0.0.0 smartcam.adt-worldwide.com
 :: smartcam.adt-worldwide.com
-0.0.0.0 smartcard.apps.coloros.com
-:: smartcard.apps.coloros.com
 0.0.0.0 smartcart.fr
 :: smartcart.fr
 0.0.0.0 smartclick.net

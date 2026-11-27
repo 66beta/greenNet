@@ -1,9 +1,9 @@
 # greenNet Hosts
-# Generated: 2026-11-27T08:02:53.335Z
+# Generated: 2026-11-27T08:12:19.686Z
 # Profile: Basic
-# Total Unique Domains: 215998
+# Total Unique Domains: 215989
 # Mode: IPv4 Only
-# Exact Whitelist Count: 5
+# Exact Whitelist Count: 16
 # Suffix Whitelist Count: 0
 
 0.0.0.0 0.avmarket.rs
@@ -46601,7 +46601,6 @@
 0.0.0.0 dc.lundboats.com
 0.0.0.0 dc.luzygas.ahorraconrepsol.com
 0.0.0.0 dc.madridistas.com
-0.0.0.0 dc.oppomobile.com
 0.0.0.0 dc.pagoda.com
 0.0.0.0 dc.peoplesjewellers.com
 0.0.0.0 dc.plussizetech.com
@@ -50254,7 +50253,6 @@
 0.0.0.0 drabimprovement.com
 0.0.0.0 drachenjawpprimed.qpon
 0.0.0.0 draco-artgallery.wz.cz
-0.0.0.0 dragate-in-dc.heytapmobile.com
 0.0.0.0 dragmanblinded.com
 0.0.0.0 dragon.codemakes.art
 0.0.0.0 dragon.ecoshop.ee
@@ -56235,7 +56233,6 @@
 0.0.0.0 es.lucanet.com
 0.0.0.0 es.oddo-bhf.com
 0.0.0.0 es.ylilauta.org
-0.0.0.0 esa-reg-eup.myoppo.com
 0.0.0.0 esa2j46dwf.com
 0.0.0.0 esales.ycc.sa
 0.0.0.0 esanciw.top
@@ -78077,7 +78074,6 @@
 0.0.0.0 httpdns.n.netease.com
 0.0.0.0 httpdns.n.shifen.com
 0.0.0.0 httpdns.ocloud.heytapmobi.com
-0.0.0.0 httpdns.ocloud.oppomobile.com
 0.0.0.0 httpdns.platform.dbankcloud.cn
 0.0.0.0 httpdns.platform.dbankcloud.com
 0.0.0.0 httpdns.pro
@@ -100833,7 +100829,6 @@
 0.0.0.0 log-bridge-mobile.kr.karrotmarket.com
 0.0.0.0 log-collector.shopee.vn
 0.0.0.0 log-dttc.sggp.org.vn
-0.0.0.0 log-eap-sg.coloros.com
 0.0.0.0 log-en.nhandan.vn
 0.0.0.0 log-en.sggp.org.vn
 0.0.0.0 log-gateway.zoom.us
@@ -113547,7 +113542,6 @@
 0.0.0.0 mo.res.wpscdn.cn
 0.0.0.0 mo0lqi51s1.com
 0.0.0.0 mo3i5n46.de
-0.0.0.0 moa-upload-online.coloros.com
 0.0.0.0 moa.mediaoutcast.com
 0.0.0.0 moad.cn
 0.0.0.0 moai-dev-samsung.com
@@ -120269,7 +120263,6 @@
 0.0.0.0 obtuserunaxledkassite.cyou
 0.0.0.0 obuntoibafqlz.site
 0.0.0.0 obuqwygptmjge.website
-0.0.0.0 obus-in.dc.heytapmobile.com
 0.0.0.0 obuse-apple.com
 0.0.0.0 obutl.4patriots.com
 0.0.0.0 obv3epx22d.com
@@ -121435,7 +121428,6 @@
 0.0.0.0 omeliepoetry.cfd
 0.0.0.0 omenparsnipwreckage.com
 0.0.0.0 omeotex.com
-0.0.0.0 omes-sec.heytapmobile.com
 0.0.0.0 ometrics.ameds.com
 0.0.0.0 ometrics.claflinequip.com
 0.0.0.0 ometrics.lorealparisusa.com
@@ -152595,7 +152587,6 @@
 0.0.0.0 smartbuildnow.com
 0.0.0.0 smartcallback.ru
 0.0.0.0 smartcam.adt-worldwide.com
-0.0.0.0 smartcard.apps.coloros.com
 0.0.0.0 smartcart.fr
 0.0.0.0 smartclick.net
 0.0.0.0 smartclip-services.com

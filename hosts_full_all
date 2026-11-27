@@ -1,9 +1,9 @@
 # greenNet Hosts
-# Generated: 2026-11-27T08:02:53.460Z
+# Generated: 2026-11-27T08:12:19.800Z
 # Profile: Full IPv4 + IPv6
-# Total Unique Domains: 342603
+# Total Unique Domains: 342594
 # Mode: IPv4 + IPv6
-# Exact Whitelist Count: 5
+# Exact Whitelist Count: 16
 # Suffix Whitelist Count: 0
 
 0.0.0.0 0--d.com
@@ -192628,8 +192628,6 @@
 :: dc.madridistas.com
 0.0.0.0 dc.norton.com
 :: dc.norton.com
-0.0.0.0 dc.oppomobile.com
-:: dc.oppomobile.com
 0.0.0.0 dc.oracleinfinity.io
 :: dc.oracleinfinity.io
 0.0.0.0 dc.oracleinfinity.io.akadns.net
@@ -203740,8 +203738,6 @@
 :: dradvice.in
 0.0.0.0 dragate-cn.dc.heytapmobi.com
 :: dragate-cn.dc.heytapmobi.com
-0.0.0.0 dragate-in-dc.heytapmobile.com
-:: dragate-in-dc.heytapmobile.com
 0.0.0.0 dragate-in.dc.heytapmobi.com
 :: dragate-in.dc.heytapmobi.com
 0.0.0.0 dragate-sg.dc.heytapmobi.com
@@ -222004,8 +222000,6 @@
 :: es1preprod-s2s.sensic.net
 0.0.0.0 es9byq-gcdsdk.appsflyersdk.com
 :: es9byq-gcdsdk.appsflyersdk.com
-0.0.0.0 esa-reg-eup.myoppo.com
-:: esa-reg-eup.myoppo.com
 0.0.0.0 esa2j46dwf.com
 :: esa2j46dwf.com
 0.0.0.0 esa5vr-cdn-settings.appsflyersdk.com
@@ -284758,8 +284752,6 @@
 :: httpdns.n.shifen.com
 0.0.0.0 httpdns.ocloud.heytapmobi.com
 :: httpdns.ocloud.heytapmobi.com
-0.0.0.0 httpdns.ocloud.oppomobile.com
-:: httpdns.ocloud.oppomobile.com
 0.0.0.0 httpdns.platform.dbankcloud.cn
 :: httpdns.platform.dbankcloud.cn
 0.0.0.0 httpdns.platform.dbankcloud.com
@@ -346668,8 +346660,6 @@
 :: log-dttc.sggp.org.vn
 0.0.0.0 log-eap-in.coloros.com
 :: log-eap-in.coloros.com
-0.0.0.0 log-eap-sg.coloros.com
-:: log-eap-sg.coloros.com
 0.0.0.0 log-eap.coloros.com
 :: log-eap.coloros.com
 0.0.0.0 log-en-sggp.epicdn.me
@@ -385900,8 +385890,6 @@
 :: moa-upload-in.allawnos.com
 0.0.0.0 moa-upload-online-in.coloros.com
 :: moa-upload-online-in.coloros.com
-0.0.0.0 moa-upload-online.coloros.com
-:: moa-upload-online.coloros.com
 0.0.0.0 moa-upload-sg.allawnos.com
 :: moa-upload-sg.allawnos.com
 0.0.0.0 moa.mediaoutcast.com
@@ -407450,8 +407438,6 @@
 :: obus-hid-in.heytapmobile.com
 0.0.0.0 obus-hid-sg.heytapmobile.com
 :: obus-hid-sg.heytapmobile.com
-0.0.0.0 obus-in.dc.heytapmobile.com
-:: obus-in.dc.heytapmobile.com
 0.0.0.0 obus-jssdk-cn.heytapmobi.com
 :: obus-jssdk-cn.heytapmobi.com
 0.0.0.0 obus-jssdk-fr.heytapmobile.com
@@ -410862,8 +410848,6 @@
 :: omeotex.com
 0.0.0.0 omes-sec.heytapmobi.com
 :: omes-sec.heytapmobi.com
-0.0.0.0 omes-sec.heytapmobile.com
-:: omes-sec.heytapmobile.com
 0.0.0.0 ometria.com
 :: ometria.com
 0.0.0.0 ometrics.ameds.com
@@ -512362,8 +512346,6 @@
 :: smartcard-apps-in.allawnos.com
 0.0.0.0 smartcard-apps-us.allawnos.com
 :: smartcard-apps-us.allawnos.com
-0.0.0.0 smartcard.apps.coloros.com
-:: smartcard.apps.coloros.com
 0.0.0.0 smartcardf-eu.apps.coloros.com
 :: smartcardf-eu.apps.coloros.com
 0.0.0.0 smartcardf.apps.coloros.com
