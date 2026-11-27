@@ -1,10 +1,13 @@
 # OPPO / OnePlus / realme
 # 仅添加经过实际验证、确实需要放行的域名
-# httpdns.push.oppomobile.com
-# dc.oppomobile.com
-oppomobile.com
-myoppo.com
-heytapmobi.com
-heytapmobile.com
-finzfin.com
-coloros.com
+# oppomobile.com
+# myoppo.com
+# heytapmobi.com
+# heytapmobile.com
+# finzfin.com
+# coloros.com
+httpdns.push.oppomobile.com
+stat-in.dc.oppomobile.com
+dragate.dc.oppomobile.com
+conff.dc.oppomobile.com
+confe.dc.oppomobile.com
